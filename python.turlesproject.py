@@ -5,8 +5,7 @@ i LOVE github yippie hurray
 import turtle
 t = turtle.Turtle()
 t.speed(0)
-t.penu
-p()
+t.penup()
 t.goto(0,-200)
 def layer(radius, color_, y_level):
     t.sety(y_level)
