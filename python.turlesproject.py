@@ -29,6 +29,7 @@ create_key_of_things("#9E3018",-170,155,"Mesosphere = center layer made of ores 
 create_key_of_things("#CC7A1D",-170,140,"Outercore = lower layer made of molten metal and lava") 
 create_key_of_things("#D99C18",-170,125,"Innercore = lowest layer made of hot iron")
 count = 0
+#keeps tab open
 t.speed(1)
 t.hideturtle()
 for i in range(10):
