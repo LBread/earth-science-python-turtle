@@ -18,12 +18,13 @@ layer(140,"#873A1B",-180)
 layer(120,"#9E3018",-160)
 layer(70,"#CC7A1D",-110)
 layer(35,"#D99C18",-75)
+
 def create_key_of_things(colortext,x,y,text):
     t.penup()
     t.color(colortext) 
     t.goto(x,y) 
     t.write(text, font=("Arial", 10, "bold"), align="left")
-    t.goto(x-5.5,y+1.5)
+    t.goto(x-5.5,y+5)
     t.begin_fill()
     t.circle(2.5,360,4)
     t.end_fill()
@@ -32,11 +33,26 @@ create_key_of_things("#873A1B",-170,170,"Ashthenosphere = inner layer made of mi
 create_key_of_things("#9E3018",-170,155,"Mesosphere = center layer made of ores and lava") 
 create_key_of_things("#CC7A1D",-170,140,"Outercore = lower layer made of molten metal and lava") 
 create_key_of_things("#D99C18",-170,125,"Innercore = lowest layer made of hot iron")
-count = 0
+def definitions_of_things(sent1,sent2,x,y):
+    t.goto(x,y)
+    t.write(sent1, font=("Arial", 10, "bold"), align="left")
+    t.sety(y-10)
+    t.write(sent2, font=("Arial", 10, "bold"), align="left")
+definitions_of_things("The Lithosphere is the outer layer of the earth and is made of a hard crust,", "it is cold and contains the ocean and many caves",-50,200)
 #keeps tab open
 t.speed(1)
 t.hideturtle()
 for i in range(10):
     t.goto(400,400)
     t.goto(-400,-400)
-t.goto(200,200)
+
+
+
+
+
+
+
+
+
+
+
