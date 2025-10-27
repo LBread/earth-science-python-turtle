@@ -36,7 +36,7 @@ create_key_of_things("#D99C18",-170,125,"Innercore = lowest layer made of hot ir
 def definitions_of_things(sent1,sent2,x,y):
     t.goto(x,y)
     t.write(sent1, font=("Arial", 10, "bold"), align="left")
-    t.sety(y-10)
+    t.sety(y-15)
     t.write(sent2, font=("Arial", 10, "bold"), align="left")
 definitions_of_things("The Lithosphere is the outer layer of the earth and is made of a hard crust,", "it is cold and contains the ocean and many caves",-50,200)
 #keeps tab open
@@ -55,4 +55,6 @@ for i in range(10):
 
 
 
-
+"""""
+DURDURDURDURUDURUDURUDURUDURUDURUDURUDURUDURURUDURURUDRUEUDURUDRUERUFJINDSJNISAWDJNWJNDEJISDJUNOJIsdiihnodafuouoijijijoijdcsv
+"""
