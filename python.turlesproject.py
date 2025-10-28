@@ -1,6 +1,35 @@
 import turtle
+import random
 t = turtle.Turtle()
+screen = turtle.Screen()
+screen.bgcolor("#0B0E2A")
+screen.setup(width=800, height=800)
 t.speed(0)
+t.hideturtle()
+
+canvas = screen.getcanvas()
+root = canvas.winfo_toplevel()
+root.attributes("-fullscreen", True)
+
+def draw_star( x, y, size, color):
+    t.penup()
+    t.goto(x, y)
+    t.pendown()
+    t.color(color)
+    t.begin_fill()
+    for _ in range(5):
+        t.forward(size)
+        t.right(144)
+    t.end_fill()
+
+num_stars = 100
+for _ in range(num_stars):
+    x = random.randint(-800, 800)
+    y = random.randint(-800, 800)
+    size = random.randint(2, 6)
+    color = random.choice(["white", "lightgray"]) 
+    
+    draw_star(x, y, size, color)
 t.penup()
 t.goto(0,-200)
 #the main earth code
@@ -43,9 +72,5 @@ definitions_of_things("The asthenosphere lies just below the lithosphere and is 
 definitions_of_things("The mesosphere is the strong, lower part of the mantle beneath the asthenosphere.","It’s made of solid rock that moves more slowly due to higher pressure and density.", -450,-240,"#9E3018")
 definitions_of_things("The outer core is a layer of molten iron and nickel surrounding the inner core.", "Its flowing metal creates Earth’s magnetic field.", 75,-240,"#CC7A1D")
 definitions_of_things("The inner core is the solid center of the Earth made mostly of iron and nickel.","It remains solid because of the immense pressure at Earth’s center despite extremely high temperatures.", 175,-90,"#D99C18")
-#keeps tab open
-t.speed(1)
-t.hideturtle()
-for i in range(10):
-    t.goto(400,400)
-    t.goto(-400,-400)
+
+screen.exitonclick()
