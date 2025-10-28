@@ -1,7 +1,3 @@
-"""
-test on git hub hurray
-i LOVE github yippie hurray
-"""
 import turtle
 t = turtle.Turtle()
 t.speed(0)
@@ -50,11 +46,3 @@ for i in range(10):
 
 
 
-
-
-
-
-
-"""""
-DURDURDURDURUDURUDURUDURUDURUDURUDURUDURUDURURUDURURUDRUEUDURUDRUERUFJINDSJNISAWDJNWJNDEJISDJUNOJIsdiihnodafuouoijijijoijdcsv
-"""
