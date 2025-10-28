@@ -6,6 +6,7 @@ screen.bgcolor("#0B0E2A")
 screen.setup(width=800, height=800)
 t.speed(0)
 t.hideturtle()
+screen.tracer(0)
 
 canvas = screen.getcanvas()
 root = canvas.winfo_toplevel()
@@ -73,4 +74,5 @@ definitions_of_things("The mesosphere is the strong, lower part of the mantle be
 definitions_of_things("The outer core is a layer of molten iron and nickel surrounding the inner core.", "Its flowing metal creates Earth’s magnetic field.", 75,-240,"#CC7A1D")
 definitions_of_things("The inner core is the solid center of the Earth made mostly of iron and nickel.","It remains solid because of the immense pressure at Earth’s center despite extremely high temperatures.", 175,-90,"#D99C18")
 
+screen.update()
 screen.exitonclick()
