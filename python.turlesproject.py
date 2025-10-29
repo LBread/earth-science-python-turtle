@@ -1,6 +1,36 @@
 import turtle
+import random
 t = turtle.Turtle()
+screen = turtle.Screen()
+screen.bgcolor("#0B0E2A")
+screen.setup(width=800, height=800)
 t.speed(0)
+t.hideturtle()
+screen.tracer(0)
+
+canvas = screen.getcanvas()
+root = canvas.winfo_toplevel()
+root.attributes("-fullscreen", True)
+
+def draw_star( x, y, size, color):
+    t.penup()
+    t.goto(x, y)
+    t.pendown()
+    t.color(color)
+    t.begin_fill()
+    for _ in range(5):
+        t.forward(size)
+        t.right(144)
+    t.end_fill()
+
+num_stars = 100
+for _ in range(num_stars):
+    x = random.randint(-800, 800)
+    y = random.randint(-800, 800)
+    size = random.randint(2, 6)
+    color = random.choice(["white", "lightgray"]) 
+    
+    draw_star(x, y, size, color)
 t.penup()
 t.goto(0,-200)
 #the main earth code
@@ -36,7 +66,6 @@ create_key_of_things("#192BD1",300,140,"Hydrosphere:")
 create_key_of_things("#19D18B",300,95,"Biosphere:")
 create_key_of_things("#76B3F8",300,275  ,"Convection currents")
 #used to make definitions of layers
-
 def definitions_of_things(sent1,sent2,x,y,Defcolor):
     t.goto(x,y)
     t.color(Defcolor)
@@ -53,4 +82,5 @@ definitions_of_things("The Geosphere is the solid part of the Earth, including r
 definitions_of_things("The hydrosphere includes all the water on Earth, such as oceans, rivers, lakes, glaciers, and even water vapor in the air. ","It is essential for all living things and constantly moves through the water cycle.",275,125,"#192BD1")
 definitions_of_things("The biosphere consists of all living organisms on Earth, from tiny microbes to large animals and plants.", "It interacts with the other spheres to support and sustain life.",275,80,"#19D18B")
 definitions_of_things("Convection currents are the movement of fluids (like air or magma) caused by differences in temperature and density.", "Warmer, less dense material rises while cooler, denser material sinks, creating a continuous circular flow.",275,260,"#76B3F8")
-turtle.done()
+screen.update()
+screen.exitonclick()
