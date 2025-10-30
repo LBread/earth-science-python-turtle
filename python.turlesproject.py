@@ -1,10 +1,15 @@
 import turtle
 import random
+import math
+import time
+from turtle import Shape
+
 t = turtle.Turtle()
 screen = turtle.Screen()
 screen.bgcolor("#0B0E2A")
 screen.setup(width=800, height=800)
 t.speed(0)
+t.penup()
 t.hideturtle()
 screen.tracer(0)
 
@@ -33,6 +38,7 @@ for _ in range(num_stars):
     draw_star(x, y, size, color)
 t.penup()
 t.goto(0,-200)
+
 #the main earth code
 def layer(radius, color_,x,y_level,rotation):
     t.goto(x,y_level)
@@ -126,4 +132,59 @@ make_definition_lines(275,80,)
 make_definition_lines(275,260,)
 """
 screen.update()
-screen.exitonclick()
+
+def create_moon_shape(screen, size=35):
+    """Register a circular moon shape."""
+    moon_shape = Shape("compound")
+    temp_t = turtle.Turtle(visible=False)
+    temp_t.penup()
+    temp_t.goto(0, -size)
+    temp_t.begin_poly()
+    temp_t.circle(size)
+    temp_t.end_poly()
+    poly = temp_t.get_poly()
+    moon_shape.addcomponent(poly, "lightgray", "lightgray")
+    screen.register_shape("moon", moon_shape)
+
+create_moon_shape(screen)
+
+moon = turtle.Turtle()
+moon.shape("moon")
+moon.penup()
+moon.speed(0)
+moon.hideturtle()
+
+radius = 400
+speed = 0.05
+angle = 0
+moon_size = 35
+running = True
+
+def stop_animation(x=None, y=None):
+    global running
+    running = False
+
+def stop_animation(x=None, y=None):
+    global running
+    running = False
+    screen.bye()
+
+screen.onclick(stop_animation)
+
+while running:
+    x = radius * math.cos(angle)
+    y = radius * math.sin(angle) * 0.4
+    scale = 0.6 + 0.4 * math.sin(angle)
+
+    depth = (math.sin(angle) + 1) / 2 
+    if depth < 0.03:
+        moon.hideturtle()
+    else:
+        moon.showturtle()
+
+    moon.shapesize(stretch_wid=scale, stretch_len=scale)
+    moon.goto(x, y)
+    screen.update()
+
+    angle += speed
+    time.sleep(0.02)
