@@ -34,19 +34,40 @@ for _ in range(num_stars):
 t.penup()
 t.goto(0,-200)
 #the main earth code
-def layer(radius, color_, y_level,rotation):
-    t.sety(y_level)
+def layer(radius, color_,x,y_level,rotation):
+    t.goto(x,y_level)
     t.begin_fill()
     t.color(color_)
     t.circle(radius,rotation)
-    t.goto(0,-40)
     t.end_fill()
-layer(150,"OliveDrab",-190,360)
-layer(140,"#873A1B",-180,360)
-layer(120,"#9E3018",-160,360)
-layer(70,"#CC7A1D",-110,360)
-layer(35,"#D99C18",-75,360)
-layer(150,"OliveDrab",-190,270)
+layer(160,"#6B8E23",10,-210,360)
+layer(150,"#5E7E1F",0,-190,360)
+layer(140,"#873A1B",0,-180,360)
+layer(120,"#9E3018",0,-160,360)
+layer(70,"#CC7A1D",0,-110,360)
+layer(35,"#D99C18",0,-75,360)
+layer(150,"#6B8E23",0,-190,180)
+
+def draw_half_oval(start, mid, end, fill_color):
+    t.color(fill_color)
+    t.penup()
+    t.goto(start)
+    t.pendown()
+    t.begin_fill()
+    steps = 40
+    for i in range(steps + 1):
+        t_val = i / steps
+        x = (1 - t_val)**2 * start[0] + 2 * (1 - t_val) * t_val * mid[0] + t_val**2 * end[0]
+        y = (1 - t_val)**2 * start[1] + 2 * (1 - t_val) * t_val * mid[1] + t_val**2 * end[1]
+        t.goto(x, y)
+    t.goto(start)
+    t.end_fill()
+
+draw_half_oval((0, -190), (100, -40), (0, 108), "#4A6318")
+draw_half_oval((0, -180), (90, -40), (0, 98), "#6B2E16")
+draw_half_oval((0, -160), (80, -40), (0, 78), "#6D2211")
+draw_half_oval((0, -110), (50, -40), (0, 28), "#854F13")
+draw_half_oval((0, -75), (15, -40), (0, -8), "#966C13")
 
 #basic definitons
 def create_key_of_things(colortext,x,y,text):
@@ -69,21 +90,40 @@ create_key_of_things("#192BD1",300,140,"Hydrosphere:")
 create_key_of_things("#19D18B",300,95,"Biosphere:")
 create_key_of_things("#76B3F8",300,275  ,"Convection currents")
 #used to make definitions of layers
-def definitions_of_things(sent1,sent2,x,y,Defcolor):
+def definitions_of_things(x,y,sent1,sent2,Defcolor):
     t.goto(x,y)
     t.color(Defcolor)
     t.write(sent1, font=("Arial", 8, "bold"), align="left")
     t.sety(y-15)
     t.write(sent2, font=("Arial", 8, "bold"), align="left")
-definitions_of_things("The lithosphere is the rigid cold outer layer that includes the crust and the uppermost part of the mantle"," It’s broken into tectonic plates that move slowly over the softer layer beneath.",-500,110,"OliveDrab")
-definitions_of_things("The asthenosphere lies just below the lithosphere and is made of partially hot molten rock that can flow.", "This layer allows the tectonic plates above it to move and shift.",-725,-90,"#873A1B")
-definitions_of_things("The mesosphere is the strong, lower part of the mantle beneath the asthenosphere.","It’s made of solid rock that moves more slowly due to higher pressure and density.", -450,-240,"#9E3018")
-definitions_of_things("The outer core is a layer of  extremely hot molten iron and nickel that surrounds the inner core.", "Its flowing metal creates Earth’s magnetic field.", 75,-240,"#CC7A1D")
-definitions_of_things("The inner core is the solid center of the Earth made mostly of hot iron and nickel.","It remains solid because of the immense pressure at Earth’s center despite extremely high temperatures.", 175,-90,"#D99C18")
-definitions_of_things("The Atmosphere is the layer of gases surrounding Earth ""that provides the air we breathe ","and protects us from the Sun’s harmful radiation."" It also helps regulate the planet’s temperature and weather patterns.",275,215,"#23838A")
-definitions_of_things("The Geosphere is the solid part of the Earth, including rocks, soil, and the layers beneath the surface.", "It provides the foundation for landforms like mountains, valleys, and volcanoes.",275,170,"#42A115")
-definitions_of_things("The hydrosphere includes all the water on Earth, such as oceans, rivers, lakes, glaciers, and even water vapor in the air. ","It is essential for all living things and constantly moves through the water cycle.",275,125,"#192BD1")
-definitions_of_things("The biosphere consists of all living organisms on Earth, from tiny microbes to large animals and plants.", "It interacts with the other spheres to support and sustain life.",275,80,"#19D18B")
-definitions_of_things("Convection currents are the movement of fluids (like air or magma) caused by differences in temperature and density.", "Warmer, less dense material rises while cooler, denser material sinks, creating a continuous circular flow.",275,260,"#76B3F8")
+definitions_of_things(-500,110,"The lithosphere is the rigid cold outer layer that includes the crust and the uppermost part of the mantle"," It’s broken into tectonic plates that move slowly over the softer layer beneath.","OliveDrab")
+definitions_of_things(-725,-90,"The asthenosphere lies just below the lithosphere and is made of partially hot molten rock that can flow.", "This layer allows the tectonic plates above it to move and shift.","#873A1B")
+definitions_of_things(-450,-240,"The mesosphere is the strong, lower part of the mantle beneath the asthenosphere.","It’s made of solid rock that moves more slowly due to higher pressure and density.","#9E3018")
+definitions_of_things(75,-240,"The outer core is a layer of  extremely hot molten iron and nickel that surrounds the inner core.", "Its flowing metal creates Earth’s magnetic field.","#CC7A1D")
+definitions_of_things(175,-90,"The inner core is the solid center of the Earth made mostly of hot iron and nickel.","It remains solid because of the immense pressure at Earth’s center despite extremely high temperatures.","#D99C18")
+definitions_of_things(275,215,"The Atmosphere is the layer of gases surrounding Earth ""that provides the air we breathe ","and protects us from the Sun’s harmful radiation."" It also helps regulate the planet’s temperature and weather patterns.","#23838A")
+definitions_of_things(275,170,"The Geosphere is the solid part of the Earth, including rocks, soil, and the layers beneath the surface.", "It provides the foundation for landforms like mountains, valleys, and volcanoes.","#42A115")
+definitions_of_things(275,125,"The hydrosphere includes all the water on Earth, such as oceans, rivers, lakes, glaciers, and even water vapor in the air. ","It is essential for all living things and constantly moves through the water cycle.","#192BD1")
+definitions_of_things(275,80,"The biosphere consists of all living organisms on Earth, from tiny microbes to large animals and plants.", "It interacts with the other spheres to support and sustain life.","#19D18B")
+definitions_of_things(275,260,"Convection currents are the movement of fluids (like air or magma) caused by differences in temperature and density.", "Warmer, less dense material rises while cooler, denser material sinks, creating a continuous circular flow.","#76B3F8")
+#Future code
+"""
+def make_definition_lines(def_x,def_y,layer_x,layer_y,line_color):
+    t.color(line_color)
+    t.goto(def_x,def_y)
+    t.pendown()
+    t.goto(layer_x,layer_y)
+
+make_definition_lines(-500,110,)
+make_definition_lines(-725,-90,)
+make_definition_lines(-450,-240,)
+make_definition_lines(75,-240,)
+make_definition_lines(175,-90,)
+make_definition_lines(275,215,)
+make_definition_lines(275,170,)
+make_definition_lines(275,125,)
+make_definition_lines(275,80,)
+make_definition_lines(275,260,)
+"""
 screen.update()
 screen.exitonclick()
