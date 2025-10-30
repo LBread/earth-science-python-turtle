@@ -23,28 +23,31 @@ def draw_star( x, y, size, color):
         t.right(144)
     t.end_fill()
 
-num_stars = 100
+num_stars = 1000
 for _ in range(num_stars):
-    x = random.randint(-800, 800)
+    x = random.randint(-1000, 1000)
     y = random.randint(-800, 800)
-    size = random.randint(2, 6)
-    color = random.choice(["white", "lightgray"]) 
+    size = random.randint(0, 4)
+    color = random.choice(["lightgray","#4c4463","#8a8bbd","#521E1E","#3c5152"]) 
     
     draw_star(x, y, size, color)
 t.penup()
 t.goto(0,-200)
 #the main earth code
-def layer(radius, color_, y_level):
+def layer(radius, color_, y_level,rotation):
     t.sety(y_level)
     t.begin_fill()
     t.color(color_)
-    t.circle(radius)
+    t.circle(radius,rotation)
+    t.goto(0,-40)
     t.end_fill()
-layer(150,"OliveDrab",-190)
-layer(140,"#873A1B",-180)
-layer(120,"#9E3018",-160)
-layer(70,"#CC7A1D",-110)
-layer(35,"#D99C18",-75)
+layer(150,"OliveDrab",-190,360)
+layer(140,"#873A1B",-180,360)
+layer(120,"#9E3018",-160,360)
+layer(70,"#CC7A1D",-110,360)
+layer(35,"#D99C18",-75,360)
+layer(150,"OliveDrab",-190,270)
+
 #basic definitons
 def create_key_of_things(colortext,x,y,text):
     t.penup()
