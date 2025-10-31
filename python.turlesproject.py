@@ -101,7 +101,7 @@ def definitions_of_things(x,y,sent1,sent2,Defcolor):
     t.write(sent1, font=("Arial", 8, "bold"), align="left")
     t.sety(y-15)
     t.write(sent2, font=("Arial", 8, "bold"), align="left")
-definitions_of_things(-925,460,"The lithosphere is the rigid cold outer layer that includes the crust and the uppermost part of the mantle"," It’s broken into tectonic plates that move slowly over the softer layer beneath.","#627936")
+definitions_of_things(-925,460,"The lithosphere is the rigid cold outer layer that includes the crust and the uppermost part of the mantle"," It’s broken into tectonic plates that move slowly over the softer layer beneath.","#5E7E1F")
 definitions_of_things(-925,410,"The asthenosphere lies just below the lithosphere and is made of partially hot molten rock that can flow.", "This layer allows the tectonic plates above it to move and shift.","#7A3A20")
 definitions_of_things(-925,360,"The mesosphere is the strong, lower part of the mantle beneath the asthenosphere.","It’s made of solid rock that moves more slowly due to higher pressure and density.","#9E3018")
 definitions_of_things(-925,310,"The outer core is a layer of  extremely hot molten iron and nickel that surrounds the inner core.", "Its flowing metal creates Earth’s magnetic field.","#CC904B")
@@ -117,10 +117,7 @@ t.write("Earths layers", font=("Courier New", 30, "bold"), align="left")
 t.goto(925,435)
 t.color("blue")
 t.write("Earths Spheres", font=("Courier New", 30, "bold"), align="right")
-#Future code
-"""
-def make_definition_lines(def_x,def_y,layer_x,layer_y,line_color):
-t.pensize(4)
+t.pensize(2)
 def make_definition_lines(def_x,def_y,mid_x,mid_y,layer_x,layer_y,line_color):
     t.color(line_color)
     t.goto(def_x,def_y)
@@ -129,18 +126,11 @@ def make_definition_lines(def_x,def_y,mid_x,mid_y,layer_x,layer_y,line_color):
     t.goto(layer_x,layer_y)
     t.penup()
 
-make_definition_lines(-500,300,-40,300,-40,20,"#CC7A1D")
-make_definition_lines(-500,450,-60,450,-60,100,"#5E7E1F")
-make_definition_lines(-500,400,-80,400,-80,70,"#873A1B")
-make_definition_lines(-500,350,-100,350,-100,30,"#9E3018")
-"""
-make_definition_lines(175,-90,)
-make_definition_lines(275,215,)
-make_definition_lines(275,170,)
-make_definition_lines(275,125,)
-make_definition_lines(275,80,)
-make_definition_lines(275,260,)
-"""
+make_definition_lines(-320,250,-20,250,-20,-20,"#D99C18")
+make_definition_lines(-650,300,-40,300,-40,20,"#CC7A1D")
+make_definition_lines(-470,450,-60,450,-60,100,"#5E7E1F")
+make_definition_lines(-560,400,-80,400,-80,70,"#873A1B")
+make_definition_lines(-450,350,-100,350,-100,30,"#9E3018")
 def create_moon_shape(screen, size=35):
     moon_shape = Shape("compound")
     temp_t = turtle.Turtle(visible=False)
