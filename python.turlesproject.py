@@ -3,7 +3,6 @@ import random
 import math
 import time
 from turtle import Shape
-
 t = turtle.Turtle()
 screen = turtle.Screen()
 screen.bgcolor("#0B0E2A")
@@ -85,11 +84,11 @@ def create_key_of_things(colortext,x,y,text):
     t.begin_fill()
     t.circle(2.5,360,4)
     t.end_fill()
-create_key_of_things("OliveDrab",-500,125, "Lithosphere = outer layer made of rock and dirt")
-create_key_of_things("#873A1B",-700,-75,"Ashthenosphere = inner layer made of minerals") 
-create_key_of_things("#9E3018",-450,-225,"Mesosphere = center layer made of ores and lava") 
-create_key_of_things("#CC7A1D",75,-225,"Outercore = lower layer made of molten metal and lava") 
-create_key_of_things("#D99C18",175,-75,"Innercore = lowest layer made of hot iron")
+create_key_of_things("#5E7E1F",-925,475, "Lithosphere = outer layer made of rock and dirt")
+create_key_of_things("#873A1B",-925,425,"Ashthenosphere = inner layer made of minerals") 
+create_key_of_things("#9E3018",-925,375,"Mesosphere = center layer made of ores and lava") 
+create_key_of_things("#CC7A1D",-925,325,"Outercore = lower layer made of molten metal and lava") 
+create_key_of_things("#D99C18",-925,275,"Innercore = lowest layer made of hot iron")
 create_key_of_things("#149099",300,230,"Atmosphere:")
 create_key_of_things("#42A115",300,185,"Geopshere:")
 create_key_of_things("#192BD1",300,140,"Hydrosphere:")
@@ -102,16 +101,25 @@ def definitions_of_things(x,y,sent1,sent2,Defcolor):
     t.write(sent1, font=("Arial", 8, "bold"), align="left")
     t.sety(y-15)
     t.write(sent2, font=("Arial", 8, "bold"), align="left")
-definitions_of_things(-500,110,"The lithosphere is the rigid cold outer layer that includes the crust and the uppermost part of the mantle"," It’s broken into tectonic plates that move slowly over the softer layer beneath.","OliveDrab")
-definitions_of_things(-725,-90,"The asthenosphere lies just below the lithosphere and is made of partially hot molten rock that can flow.", "This layer allows the tectonic plates above it to move and shift.","#873A1B")
-definitions_of_things(-450,-240,"The mesosphere is the strong, lower part of the mantle beneath the asthenosphere.","It’s made of solid rock that moves more slowly due to higher pressure and density.","#9E3018")
-definitions_of_things(75,-240,"The outer core is a layer of  extremely hot molten iron and nickel that surrounds the inner core.", "Its flowing metal creates Earth’s magnetic field.","#CC7A1D")
-definitions_of_things(175,-90,"The inner core is the solid center of the Earth made mostly of hot iron and nickel.","It remains solid because of the immense pressure at Earth’s center despite extremely high temperatures.","#D99C18")
+definitions_of_things(-925,460,"The lithosphere is the rigid cold outer layer that includes the crust and the uppermost part of the mantle"," It’s broken into tectonic plates that move slowly over the softer layer beneath.","#627936")
+definitions_of_things(-925,410,"The asthenosphere lies just below the lithosphere and is made of partially hot molten rock that can flow.", "This layer allows the tectonic plates above it to move and shift.","#7A3A20")
+definitions_of_things(-925,360,"The mesosphere is the strong, lower part of the mantle beneath the asthenosphere.","It’s made of solid rock that moves more slowly due to higher pressure and density.","#9E3018")
+definitions_of_things(-925,310,"The outer core is a layer of  extremely hot molten iron and nickel that surrounds the inner core.", "Its flowing metal creates Earth’s magnetic field.","#CC904B")
+definitions_of_things(-925,260,"The inner core is the solid center of the Earth made mostly of hot iron and nickel.","It remains solid because of the immense pressure at Earth’s center despite extremely high temperatures.","#D99C18")
 definitions_of_things(275,215,"The Atmosphere is the layer of gases surrounding Earth ""that provides the air we breathe ","and protects us from the Sun’s harmful radiation."" It also helps regulate the planet’s temperature and weather patterns.","#23838A")
 definitions_of_things(275,170,"The Geosphere is the solid part of the Earth, including rocks, soil, and the layers beneath the surface.", "It provides the foundation for landforms like mountains, valleys, and volcanoes.","#42A115")
 definitions_of_things(275,125,"The hydrosphere includes all the water on Earth, such as oceans, rivers, lakes, glaciers, and even water vapor in the air. ","It is essential for all living things and constantly moves through the water cycle.","#192BD1")
 definitions_of_things(275,80,"The biosphere consists of all living organisms on Earth, from tiny microbes to large animals and plants.", "It interacts with the other spheres to support and sustain life.","#19D18B")
 definitions_of_things(275,260,"Convection currents are the movement of fluids (like air or magma) caused by differences in temperature and density.", "Warmer, less dense material rises while cooler, denser material sinks, creating a continuous circular flow.","#76B3F8")
+t.goto(-925,485)
+t.color("Red")
+t.write("Earths layers", font=("Courier New", 30, "bold"), align="left")
+t.goto(925,435)
+t.color("blue")
+t.write("Earths Spheres", font=("Courier New", 30, "bold"), align="right")
+#Future code
+"""
+def make_definition_lines(def_x,def_y,layer_x,layer_y,line_color):
 t.pensize(4)
 def make_definition_lines(def_x,def_y,mid_x,mid_y,layer_x,layer_y,line_color):
     t.color(line_color)
@@ -142,6 +150,7 @@ def create_moon_shape(screen, size=35):
     temp_t.circle(size)
     temp_t.end_poly()
     poly = temp_t.get_poly()
+    moon_shape.addcomponent(poly, "grey")
     moon_shape.addcomponent(poly, "#929292")
     screen.register_shape("moon", moon_shape)
 
