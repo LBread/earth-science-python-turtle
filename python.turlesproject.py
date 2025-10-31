@@ -131,10 +131,8 @@ make_definition_lines(275,125,)
 make_definition_lines(275,80,)
 make_definition_lines(275,260,)
 """
-screen.update()
 
 def create_moon_shape(screen, size=35):
-    """Register a circular moon shape."""
     moon_shape = Shape("compound")
     temp_t = turtle.Turtle(visible=False)
     temp_t.penup()
@@ -143,7 +141,7 @@ def create_moon_shape(screen, size=35):
     temp_t.circle(size)
     temp_t.end_poly()
     poly = temp_t.get_poly()
-    moon_shape.addcomponent(poly, "lightgray", "lightgray")
+    moon_shape.addcomponent(poly, "lightgray")
     screen.register_shape("moon", moon_shape)
 
 create_moon_shape(screen)
@@ -151,18 +149,11 @@ create_moon_shape(screen)
 moon = turtle.Turtle()
 moon.shape("moon")
 moon.penup()
-moon.speed(0)
-moon.hideturtle()
 
 radius = 400
-speed = 0.05
+speed = 0.02
 angle = 0
-moon_size = 35
 running = True
-
-def stop_animation(x=None, y=None):
-    global running
-    running = False
 
 def stop_animation(x=None, y=None):
     global running
@@ -177,7 +168,7 @@ while running:
     scale = 0.6 + 0.4 * math.sin(angle)
 
     depth = (math.sin(angle) + 1) / 2 
-    if depth < 0.03:
+    if depth < 0.025:
         moon.hideturtle()
     else:
         moon.showturtle()
