@@ -3,7 +3,6 @@ import random
 import math
 import time
 from turtle import Shape
-
 t = turtle.Turtle()
 screen = turtle.Screen()
 screen.bgcolor("#0B0E2A")
@@ -46,7 +45,7 @@ def layer(radius, color_,x,y_level,rotation):
     t.color(color_)
     t.circle(radius,rotation)
     t.end_fill()
-layer(160,"#6B8E23",10,-210,360)
+layer(160,"#6B8E23",0,-210,360)
 layer(150,"#5E7E1F",-10,-190,360)
 layer(140,"#873A1B",-10,-180,360)
 layer(120,"#9E3018",-10,-160,360)
@@ -121,15 +120,20 @@ t.write("Earths Spheres", font=("Courier New", 30, "bold"), align="right")
 #Future code
 """
 def make_definition_lines(def_x,def_y,layer_x,layer_y,line_color):
+t.pensize(4)
+def make_definition_lines(def_x,def_y,mid_x,mid_y,layer_x,layer_y,line_color):
     t.color(line_color)
     t.goto(def_x,def_y)
     t.pendown()
+    t.goto(mid_x,mid_y)
     t.goto(layer_x,layer_y)
+    t.penup()
 
-make_definition_lines(-500,110,)
-make_definition_lines(-725,-90,)
-make_definition_lines(-450,-240,)
-make_definition_lines(75,-240,)
+make_definition_lines(-500,300,-40,300,-40,20,"#CC7A1D")
+make_definition_lines(-500,450,-60,450,-60,100,"#5E7E1F")
+make_definition_lines(-500,400,-80,400,-80,70,"#873A1B")
+make_definition_lines(-500,350,-100,350,-100,30,"#9E3018")
+"""
 make_definition_lines(175,-90,)
 make_definition_lines(275,215,)
 make_definition_lines(275,170,)
@@ -137,7 +141,6 @@ make_definition_lines(275,125,)
 make_definition_lines(275,80,)
 make_definition_lines(275,260,)
 """
-
 def create_moon_shape(screen, size=35):
     moon_shape = Shape("compound")
     temp_t = turtle.Turtle(visible=False)
@@ -148,6 +151,7 @@ def create_moon_shape(screen, size=35):
     temp_t.end_poly()
     poly = temp_t.get_poly()
     moon_shape.addcomponent(poly, "grey")
+    moon_shape.addcomponent(poly, "#929292")
     screen.register_shape("moon", moon_shape)
 
 create_moon_shape(screen)
