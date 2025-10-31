@@ -89,11 +89,11 @@ create_key_of_things("#873A1B",-925,425,"Ashthenosphere = inner layer made of mi
 create_key_of_things("#9E3018",-925,375,"Mesosphere = center layer made of ores and lava") 
 create_key_of_things("#CC7A1D",-925,325,"Outercore = lower layer made of molten metal and lava") 
 create_key_of_things("#D99C18",-925,275,"Innercore = lowest layer made of hot iron")
-create_key_of_things("#149099",300,230,"Atmosphere:")
-create_key_of_things("#42A115",300,185,"Geopshere:")
-create_key_of_things("#192BD1",300,140,"Hydrosphere:")
-create_key_of_things("#19D18B",300,95,"Biosphere:")
-create_key_of_things("#76B3F8",300,275  ,"Convection currents")
+create_key_of_things("#149099",-925,-200,"Atmosphere:")
+create_key_of_things("#42A115",-925,-260,"Geopshere:")
+create_key_of_things("#192BD1",-925,-310,"Hydrosphere:")
+create_key_of_things("#19D18B",-925,-360,"Biosphere:")
+create_key_of_things("#76B3F8",-925,-410 ,"Convection currents")
 #used to make definitions of layers
 def definitions_of_things(x,y,sent1,sent2,Defcolor):
     t.goto(x,y)
@@ -106,21 +106,17 @@ definitions_of_things(-925,410,"The asthenosphere lies just below the lithospher
 definitions_of_things(-925,360,"The mesosphere is the strong, lower part of the mantle beneath the asthenosphere.","It’s made of solid rock that moves more slowly due to higher pressure and density.","#9E3018")
 definitions_of_things(-925,310,"The outer core is a layer of  extremely hot molten iron and nickel that surrounds the inner core.", "Its flowing metal creates Earth’s magnetic field.","#CC904B")
 definitions_of_things(-925,260,"The inner core is the solid center of the Earth made mostly of hot iron and nickel.","It remains solid because of the immense pressure at Earth’s center despite extremely high temperatures.","#D99C18")
-definitions_of_things(275,215,"The Atmosphere is the layer of gases surrounding Earth ""that provides the air we breathe ","and protects us from the Sun’s harmful radiation."" It also helps regulate the planet’s temperature and weather patterns.","#23838A")
-definitions_of_things(275,170,"The Geosphere is the solid part of the Earth, including rocks, soil, and the layers beneath the surface.", "It provides the foundation for landforms like mountains, valleys, and volcanoes.","#42A115")
-definitions_of_things(275,125,"The hydrosphere includes all the water on Earth, such as oceans, rivers, lakes, glaciers, and even water vapor in the air. ","It is essential for all living things and constantly moves through the water cycle.","#192BD1")
-definitions_of_things(275,80,"The biosphere consists of all living organisms on Earth, from tiny microbes to large animals and plants.", "It interacts with the other spheres to support and sustain life.","#19D18B")
-definitions_of_things(275,260,"Convection currents are the movement of fluids (like air or magma) caused by differences in temperature and density.", "Warmer, less dense material rises while cooler, denser material sinks, creating a continuous circular flow.","#76B3F8")
+definitions_of_things(-925,-225,"The Atmosphere is the layer of gases surrounding Earth ""that provides the air we breathe ","and protects us from the Sun’s harmful radiation."" It also helps regulate the planet’s temperature and weather patterns.","#23838A")
+definitions_of_things(-925,-275,"The Geosphere is the solid part of the Earth, including rocks, soil, and the layers beneath the surface.", "It provides the foundation for landforms like mountains, valleys, and volcanoes.","#42A115")
+definitions_of_things(-925,-325,"The hydrosphere includes all the water on Earth, such as oceans, rivers, lakes, glaciers, and even water vapor in the air. ","It is essential for all living things and constantly moves through the water cycle.","#192BD1")
+definitions_of_things(-925,-375,"The biosphere consists of all living organisms on Earth, from tiny microbes to large animals and plants.", "It interacts with the other spheres to support and sustain life.","#19D18B")
+definitions_of_things(-925,-425,"Convection currents are the movement of fluids (like air or magma) caused by differences in temperature and density.", "Warmer, less dense material rises while cooler, denser material sinks, creating a continuous circular flow.","#76B3F8")
 t.goto(-925,485)
 t.color("Red")
 t.write("Earths layers", font=("Courier New", 30, "bold"), align="left")
-t.goto(925,435)
+t.goto(-925,-175)
 t.color("blue")
-t.write("Earths Spheres", font=("Courier New", 30, "bold"), align="right")
-#Future code
-"""
-def make_definition_lines(def_x,def_y,layer_x,layer_y,line_color):
-t.pensize(4)
+t.write("Earths Spheres", font=("Courier New", 30, "bold"), align="left")
 def make_definition_lines(def_x,def_y,mid_x,mid_y,layer_x,layer_y,line_color):
     t.color(line_color)
     t.goto(def_x,def_y)
@@ -128,19 +124,11 @@ def make_definition_lines(def_x,def_y,mid_x,mid_y,layer_x,layer_y,line_color):
     t.goto(mid_x,mid_y)
     t.goto(layer_x,layer_y)
     t.penup()
-
+t.pensize(2)
 make_definition_lines(-500,300,-40,300,-40,20,"#CC7A1D")
 make_definition_lines(-500,450,-60,450,-60,100,"#5E7E1F")
 make_definition_lines(-500,400,-80,400,-80,70,"#873A1B")
 make_definition_lines(-500,350,-100,350,-100,30,"#9E3018")
-"""
-make_definition_lines(175,-90,)
-make_definition_lines(275,215,)
-make_definition_lines(275,170,)
-make_definition_lines(275,125,)
-make_definition_lines(275,80,)
-make_definition_lines(275,260,)
-"""
 def create_moon_shape(screen, size=35):
     moon_shape = Shape("compound")
     temp_t = turtle.Turtle(visible=False)
