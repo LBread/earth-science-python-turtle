@@ -116,7 +116,7 @@ t.color("Red")
 t.write("Earths layers", font=("Courier New", 30, "bold"), align="left")
 t.goto(-925,-175)
 t.color("blue")
-t.write("Earths Spheres", font=("Courier New", 30, "bold"), align="right")
+t.write("Earths Spheres", font=("Courier New", 30, "bold"), align="left")
 t.pensize(2)
 def make_definition_lines(def_x,def_y,mid_x,mid_y,layer_x,layer_y,line_color):
     t.color(line_color)
