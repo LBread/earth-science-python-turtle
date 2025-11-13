@@ -1,7 +1,6 @@
 import turtle
 import random
 import math
-import time
 from turtle import Shape
 t = turtle.Turtle()
 screen = turtle.Screen()
@@ -180,7 +179,7 @@ def close_on_backspace():
     running = False
     screen.bye()
 screen.listen()
-screen.onkey(close_on_backspace, "BackSpace")
+screen.onkey(close_on_backspace, "Return")
 animate()
 
 turtle.done()
