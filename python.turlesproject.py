@@ -1,3 +1,4 @@
+#Setup
 import turtle
 import random
 import math
@@ -10,11 +11,11 @@ t.speed(0)
 t.penup()
 t.hideturtle()
 screen.tracer(0)
-
+#Fullscreen
 canvas = screen.getcanvas()
 root = canvas.winfo_toplevel()
 root.attributes("-fullscreen", True)
-
+#Random Stars
 def draw_star( x, y, size, color):
     t.penup()
     t.goto(x, y)
@@ -25,19 +26,16 @@ def draw_star( x, y, size, color):
         t.forward(size)
         t.right(144)
     t.end_fill()
-
 num_stars = 1000
 for _ in range(num_stars):
     x = random.randint(-1000, 1000)
     y = random.randint(-800, 800)
     size = random.randint(0, 4)
     color = random.choice(["lightgray","#4c4463","#8a8bbd","#521E1E","#3c5152"]) 
-    
     draw_star(x, y, size, color)
 t.penup()
 t.goto(0,-200)
-
-#the main earth code
+#Make Earth
 def layer(radius, color_,x,y_level,rotation):
     t.goto(x,y_level)
     t.begin_fill()
@@ -51,7 +49,6 @@ layer(120,"#9E3018",-10,-160,360)
 layer(70,"#CC7A1D",-10,-110,360)
 layer(35,"#D99C18",-10,-75,360)
 layer(150,"#6B8E23",-10,-190,180)
-
 def draw_half_oval(start, mid, end, fill_color):
     t.color(fill_color)
     t.penup()
@@ -66,14 +63,12 @@ def draw_half_oval(start, mid, end, fill_color):
         t.goto(x, y)
     t.goto(start)
     t.end_fill()
-
 draw_half_oval((-10, -190), (90, -40), (-10, 108), "#4A6318")
 draw_half_oval((-10, -180), (80, -40), (-10, 98), "#6B2E16")
 draw_half_oval((-10, -160), (70, -40), (-10, 78), "#6D2211")
 draw_half_oval((-10, -110), (40, -40), (-10, 28), "#854F13")
 draw_half_oval((-10, -75), (5, -40), (-10, -8), "#966C13")
-
-#basic definitons
+#Make Definitons
 def create_key_of_things(colortext,x,y,text):
     t.penup()
     t.color(colortext) 
@@ -93,7 +88,7 @@ create_key_of_things("#42A115",-925,-260,"Geopshere:")
 create_key_of_things("#192BD1",-925,-310,"Hydrosphere:")
 create_key_of_things("#19D18B",-925,-360,"Biosphere:")
 create_key_of_things("#76B3F8",-925,-410 ,"Convection currents")
-#used to make definitions of layers
+#Make definitions of layers
 def definitions_of_things(x,y,sent1,sent2,Defcolor):
     t.goto(x,y)
     t.color(Defcolor)
@@ -117,6 +112,7 @@ t.goto(-925,-175)
 t.color("blue")
 t.write("Earths Spheres", font=("Courier New", 30, "bold"), align="left")
 t.pensize(2)
+#Make definition lines
 def make_definition_lines(def_x,def_y,mid_x,mid_y,layer_x,layer_y,line_color):
     t.color(line_color)
     t.goto(def_x,def_y)
@@ -124,12 +120,12 @@ def make_definition_lines(def_x,def_y,mid_x,mid_y,layer_x,layer_y,line_color):
     t.goto(mid_x,mid_y)
     t.goto(layer_x,layer_y)
     t.penup()
-
 make_definition_lines(-320,250,-20,250,-20,-20,"#D99C18")
 make_definition_lines(-650,300,-40,300,-40,20,"#CC7A1D")
 make_definition_lines(-470,450,-60,450,-60,100,"#5E7E1F")
 make_definition_lines(-560,400,-80,400,-80,70,"#873A1B")
 make_definition_lines(-450,350,-100,350,-100,30,"#9E3018")
+#Animated Moon
 def create_t_shape(screen, size=35):
     t_shape = Shape("compound")
     temp_t = turtle.Turtle(visible=False)
@@ -142,17 +138,15 @@ def create_t_shape(screen, size=35):
     t_shape.addcomponent(poly, "grey")
     t_shape.addcomponent(poly, "#929292")
     screen.register_shape("t", t_shape)
-
 create_t_shape(screen)
-
 t.shape("t")
 t.penup()
-
+#Moon controls
 radius = 400
 speed = 0.02
 angle = 0
 running = True
-
+#
 def animate():
     global angle, running
     if not running:
@@ -160,26 +154,47 @@ def animate():
     x = radius * math.cos(angle)
     y = radius * math.sin(angle) * 0.4
     scale = 0.6 + 0.4 * math.sin(angle)
-
     depth = (math.sin(angle) + 1) / 2
     if depth < 0.025:
         t.hideturtle()
     else:
         t.showturtle()
-
     t.shapesize(stretch_wid=scale, stretch_len=scale)
     t.goto(x, y)
     screen.update()
-
     angle += speed
     screen.ontimer(animate, 20)
-
-def close_on_backspace():
+#Close game
+def close_on_return():
     global running
     running = False
     screen.bye()
 screen.listen()
-screen.onkey(close_on_backspace, "Return")
-animate()
+screen.onkey(close_on_return, "Return")
+# --- CLICK COUNTER SYSTEM ---
+click_count = 0
+# Counter display turtle
+counter_t = turtle.Turtle()
+counter_t.hideturtle()
+counter_t.penup()
+counter_t.color("white")
+counter_t.goto(850, 500)
+counter_t.write("Clicks: 0", align="right", font=("Arial", 20, "bold"))
+# Function to update counter graphics
+def update_counter():
+    counter_t.clear()
+    counter_t.write(f"Clicks: {click_count}", align="right", font=("Arial", 20, "bold"))
+# Check if click is inside Earth
+def is_earth_clicked(x, y):
+    dist = math.sqrt((x + 1)**2 + (y + 49)**2)
+    return dist <= 161
 
+def handle_click(x, y):
+    global click_count
+    if is_earth_clicked(x, y):
+        click_count += 1
+        update_counter()
+screen.onclick(handle_click)
+
+animate()
 turtle.done()
