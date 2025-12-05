@@ -15,26 +15,7 @@ screen.tracer(0)
 canvas = screen.getcanvas()
 root = canvas.winfo_toplevel()
 root.attributes("-fullscreen", True)
-#Random Stars
-def draw_star( x, y, size, color):
-    t.penup()
-    t.goto(x, y)
-    t.pendown()
-    t.color(color)
-    t.begin_fill()
-    for _ in range(5):
-        t.forward(size)
-        t.right(144)
-    t.end_fill()
-num_stars = 1000
-for _ in range(num_stars):
-    x = random.randint(-1000, 1000)
-    y = random.randint(-800, 800)
-    size = random.randint(0, 4)
-    color = random.choice(["lightgray","#4c4463","#8a8bbd","#521E1E","#3c5152"]) 
-    draw_star(x, y, size, color)
-t.penup()
-t.goto(0,-200)
+
 #Make Earth
 def layer(radius, color_,x,y_level,rotation):
     t.goto(x,y_level)
